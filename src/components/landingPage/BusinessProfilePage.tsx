@@ -1,6 +1,7 @@
-import React, { forwardRef } from "react";
-import { Slide } from "../Layout";
+import React, { useRef } from "react";
 import { StaticImage } from "gatsby-plugin-image";
+import ScrollSlider, { Slide, SlideSectionProps } from "../shared/scrollSlider/ScrollSlider";
+import { useScrollNavBar } from "../../hooks/useScrollNavBar";
 
 const title = "Perfil Empresarial";
 const imagePath = "../../images/bussiness-profile-page.jpg";
@@ -12,10 +13,10 @@ Sed maxime provident aut tenetur doloremque qui voluptas omnis eos error esse et
 
 Sed dolorum quidem et dolore asperiores sed consectetur mollitia et quaerat recusandae. Eum quam architecto 33 rerum voluptas et facilis omnis sit ipsa amet quo dolores unde. Cum voluptas odio et earum necessitatibus eos consequuntur accusantium.`;
 
-export const BusinessProfilePage = forwardRef((props, ref) => {
+export const BusinessProfilePage = (props: {}) => {
+
   return (
-    <Slide>
-      <div ref={ref} className="grid grid-cols-4">
+      <div className="grid grid-cols-4">
         <StaticImage
           className="col-span-4 col-start-1 row-start-1"
           src={imagePath}
@@ -28,6 +29,5 @@ export const BusinessProfilePage = forwardRef((props, ref) => {
           </div>
         </div>
       </div>
-    </Slide>
   );
-});
+};

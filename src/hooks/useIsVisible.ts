@@ -1,22 +1,22 @@
 import { RefObject, useEffect, useMemo, useState } from "react";
 
-export function useIsVisible(ref: any){
-  const [isIntersecting, setIsIntersecting] = useState(false)
+export function useIsVisible(ref: any) {
+  const [isIntersecting, setIsIntersecting] = useState(false);
 
   const observer = useMemo(
     () =>
-      new IntersectionObserver(([entry]) =>
-        setIsIntersecting(entry.isIntersecting),
-      ),
-    [],
+      new IntersectionObserver(([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+      }),
+    []
   );
 
   useEffect(() => {
-    observer.observe(ref.current)
+    observer.observe(ref.current);
     return () => {
       observer.disconnect();
     };
-  }, [ref.current])
+  }, [ref.current]);
 
-  return isIntersecting
+  return isIntersecting;
 }

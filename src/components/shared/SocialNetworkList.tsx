@@ -1,38 +1,31 @@
-import React from "react"
-import { FaWhatsapp } from '@react-icons/all-files/fa/FaWhatsapp'
-import { FaInstagram } from '@react-icons/all-files/fa/FaInstagram'
-import { FaFacebookF } from '@react-icons/all-files/fa/FaFacebookF'
-
-/**
- * TODOs
- *  Increase icon size
- *  Add circle outline
- *  Improve spacing
- *  Add links to the pages
- */
+import React from "react";
+import { FaWhatsapp } from "@react-icons/all-files/fa/FaWhatsapp";
+import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
+import { FaFacebookF } from "@react-icons/all-files/fa/FaFacebookF";
 
 export const SocialNetworkList = () => {
-
   const socialNetworks = [
     {
       icon: <FaWhatsapp />,
-      link: 'TODO'
+      link: "TODO",
     },
     {
       icon: <FaInstagram />,
-      link: 'TODO'
+      link: "TODO",
     },
     {
       icon: <FaFacebookF />,
-      link: 'TODO'
+      link: "TODO",
     },
-  ]
+  ];
 
-  return (<div>
-    {
-      socialNetworks.map(net => (
-        <a href={net.link}>{net.icon}</a>
-      ))
-    }
-  </div>)
-}
+  return (
+    <div className="flex flex-col gap-2">
+      {socialNetworks.map((net) => (
+        <a className="text-xl rounded-full border-solid border-2 border-background p-2" href={net.link}>
+          {net.icon}
+        </a>
+      ))}
+    </div>
+  );
+};

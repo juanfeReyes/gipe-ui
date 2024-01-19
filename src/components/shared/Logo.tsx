@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import { NavBarContext } from "./navigationBar/NavigationContext";
+import { navigate } from "gatsby";
 
+ export const CompanyLogo = () => {
+  const {navOptions} = useContext(NavBarContext)
 
+  const goToHome = () => {
+    navigate(navOptions.home.path)
+  }
 
- /**
-  * TODOs
-  * Set text size correctly to fit the current space
-  */
- export const CompanyLogo = ({navigationHandler}) => {
   return (
     <>
-      <div onClick={navigationHandler}>
-        <div>GIPE</div>
-        <div>Ingenieria con Tecnologia</div>
+      <div className="flex flex-col items-center text-primary" onClick={goToHome}>
+        <div className="text-6xl font-medium">GIPE</div>
+        <div className="text-sm">Ingenieria con Tecnologia</div>
       </div>
     </>
   );

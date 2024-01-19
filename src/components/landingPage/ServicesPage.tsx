@@ -1,7 +1,10 @@
 import { StaticImage } from "gatsby-plugin-image";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import { Service } from "../../model/Services";
-import { Slide } from "../Layout";
+import ScrollSlider, {
+  SlideSectionProps,
+} from "../shared/scrollSlider/ScrollSlider";
+import { useScrollNavBar } from "../../hooks/useScrollNavBar";
 
 const title = "Servicios";
 const imagePath = "../../images/services-page.jpg";
@@ -38,24 +41,22 @@ export const ServiceItem = ({ service }: { service: Service }) => {
   );
 };
 
-export const ServicesPage = forwardRef((props, ref) => {
+export const ServicesPage = (props: {}) => {
   return (
-    <Slide>
-      <div ref={ref} id="#services" className="p-3 bg-background">
-        <h2>{title}</h2>
-        <div className="flex">
-          <div className="w-2/5 py-3">
-            <StaticImage className="h-full" src={imagePath} alt="" />
-          </div>
-          <div className="w-3/5">
-            <div className="flex flex-col gap-4 p-3">
-              {services.map((service) => (
-                <ServiceItem service={service} />
-              ))}
-            </div>
+    <div id="#services" className="p-3 bg-background">
+      <h2>{title}</h2>
+      <div className="flex">
+        <div className="w-2/5 py-3">
+          <StaticImage className="h-full" src={imagePath} alt="" />
+        </div>
+        <div className="w-3/5">
+          <div className="flex flex-col gap-4 p-3">
+            {services.map((service) => (
+              <ServiceItem service={service} />
+            ))}
           </div>
         </div>
       </div>
-    </Slide>
+    </div>
   );
-});
+};
