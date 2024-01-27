@@ -1,13 +1,18 @@
 import { createContext } from "react";
 
+export interface NavItem {
+  label: string;
+  path?: string;
+  type?: string;
+  pathOptions?: {
+    label: string;
+    path: string;
+  }[];
+}
+
 export interface NavBarContextType {
   navOptions: {
-    [key : string] : {
-      label: string;
-      path: string;
-      handler: () => void
-      type?: string
-    }
+    [key : string]: NavItem
   }
   setNavOptions: (k: any) => void
 }
@@ -16,18 +21,14 @@ export const initialNavBarContext = {
   home: {
     label: "inicio",
     path: '/',
-    type: 'scroll',
-    handler: () => {}
   },
   services: {
     label: "Servicios",
-    path: '/services',
-    handler: () => {}
+    pathOptions: []
   },
   news: {
     label: "Noticias",
     path: '/news',
-    handler: () => {}
   },
 }
 

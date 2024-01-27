@@ -7,6 +7,8 @@ import { ClientsPage } from "../components/landingPage/ClientsPage";
 import { useRef, useState } from "react";
 import { initialNavBarContext } from "../components/shared/navigationBar/NavigationContext";
 import ScrollSlider from "../components/shared/scrollSlider/ScrollSlider";
+import { ServicesPreview } from "../components/gipeServices/ServicesPreview";
+import { NewsPreview } from "../components/news/NewsPreview";
 
 const initialScrollNavBar = {
   sections: {
@@ -20,6 +22,10 @@ const initialScrollNavBar = {
     },
     clients: {
       label: "Clientes",
+      ref: null,
+    },
+    news: {
+      label: "Noticias",
       ref: null,
     },
   },
@@ -43,7 +49,7 @@ const IndexPage = () => {
           <ScrollSlider.Slide
             section={scrollMenus[0]}
           >
-            <ServicesPage />
+            <ServicesPreview />
           </ScrollSlider.Slide>
 
           <ScrollSlider.Slide
@@ -56,6 +62,12 @@ const IndexPage = () => {
             section={scrollMenus[2]}
           >
             <ClientsPage />
+          </ScrollSlider.Slide>
+
+          <ScrollSlider.Slide
+            section={scrollMenus[3]}
+          >
+            <NewsPreview />
           </ScrollSlider.Slide>
         </ScrollSlider>
       </Layout>

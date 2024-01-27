@@ -1,7 +1,7 @@
 import React from "react";
-import Layout from "../components/Layout";
+import Layout from "../../components/Layout";
 
-const ServicesPage = () => {
+const NewsPage = () => {
 
   return (
     <>
@@ -14,4 +14,4 @@ const ServicesPage = () => {
   )
 }
 
-export default ServicesPage;
+export default NewsPage;

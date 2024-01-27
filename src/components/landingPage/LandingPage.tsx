@@ -2,21 +2,22 @@ import { StaticImage } from "gatsby-plugin-image";
 import React, { forwardRef, useContext, useRef } from "react";
 import { ContactInformation } from "../shared/ContactInformation";
 import { SocialNetworkList } from "../shared/SocialNetworkList";
-import ScrollSlider, { SlideSectionProps } from "../shared/scrollSlider/ScrollSlider";
-import { useScrollNavBar } from "../../hooks/useScrollNavBar";
+import { BackgroundImage } from "../shared/BackgroundImage";
 
 const companySlogan = "DISEÑO Y CONSTRUCCION DE REDES CONTRA INCENDIOS";
 
 export const LandingPage = (props: {}) => {
   return (
-      <div className="grid grid-cols-4">
+    <BackgroundImage
+      image={
         <StaticImage
           className="col-span-4 col-start-1 row-start-1"
           layout="fullWidth"
           src="../../images/landing-page-background.jpg"
           alt="city-from-space"
         />
-        <div className="bg-black relative col-span-4 col-start-1 row-start-1 opacity-25"></div>
+      }
+      content={
         <div className="text-background relative grid col-span-4 col-start-1 row-start-1">
           <div className="h-full grid">
             <div className="flex justify-center items-center w-full p-2">
@@ -37,6 +38,7 @@ export const LandingPage = (props: {}) => {
             </div>
           </div>
         </div>
-      </div>
+      }
+    />
   );
 };

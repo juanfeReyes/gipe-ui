@@ -1,0 +1,57 @@
+name: "Protección contra Incendios"
+description:
+  Pretium vivamus eget platea blandit eleifend ac consequat lectus leo,
+  sociosqu varius curae himenaeos lacus at torquent fames suspendisse convallis, euismod praesent
+  ultrices vitae natoque vehicula a metus. Class duis eleifend proin
+imagePath: ../../images/services/fire-supression.jpg
+services:
+  - name: "Diseño"
+    summary:
+      integer mauris vivamus augue velit volutpat elementum est, ullamcorper natoque
+      donec ornare vitae torquent vehicula platea. Torquent tempor porttitor
+      lacinia sagittis nascetur rutrum iaculis dictumst pellentesque, netus ultricies
+      tortor orci nibh
+    description:
+      Mattis velit hendrerit ante sem pellentesque est nisl dictumst lacus enim proin vivamus turpis libero
+      volutpat fermentum, natoque dictum dui egestas integer posuere viverra quisque malesuada commodo vel habitant pharetra
+      varius. Eu risus rutrum consequat non sociosqu bibendum maecenas eleifend, mollis dictum aliquam accumsan tempor malesuada
+      mauris congue, dignissim convallis facilisis curabitur vestibulum tortor senectus. Ac natoque sapien tempor nullam primis,
+      molestie imperdiet tellus tempus aliquam enim, proin montes cras placerat. Libero a duis tempor vulputate phasellus
+      parturient imperdiet orci ridiculus, pulvinar maecenas inceptos etiam facilisi nibh ornare ultrices, eu hac urna ante
+      vivamus elementum lectus venenatis
+    imagePath: ../../images/services/fire-supression-design.jpg
+    backgroundImage: ""
+  - name: "Construcción"
+    summary:
+      Ante risus eleifend sed per enim donec nibh ligula, taciti duis cras nulla euismod
+      vulputate phasellus aptent justo, porta mattis natoque maecenas parturient sagittis rhoncus.
+      Tellus nam class accumsan dis litora magnis felis nullam ultricies eleifend venenatis purus,
+      blandit laoreet egestas pretium habitant quis sociosqu hac hendrerit proin
+    description:
+      Dignissim etiam imperdiet platea enim nulla erat habitasse, eleifend posuere netus cras purus potenti tellus vitae,
+      commodo porta orci vel tempus accumsan. Proin egestas aptent convallis integer donec mi sem dui laoreet accumsan nostra ac
+      elementum sed dapibus, porttitor neque malesuada lectus suscipit molestie nullam est sapien non curabitur rhoncus tempor.
+      Placerat fusce tellus pellentesque orci rhoncus nisl gravida porttitor, ligula at habitant scelerisque integer fermentum
+      volutpat hac, bibendum aliquet mi etiam pretium penatibus est.
+    imagePath: ../../images/services/fire-supression-building.jpg
+    backgroundImage: ""
+  - name: "Interventoria"
+    summary:
+      Sed nullam maecenas nunc senectus turpis habitant convallis nascetur,
+      urna cursus rutrum litora natoque montes ante, duis mus pulvinar quisque a pharetra nam.
+      Cum vestibulum molestie vehicula porttitor posuere euismod pellentesque tempor potenti
+    description:
+      "Felis sagittis elementum curae at convallis nisl dui, mollis lectus dignissim pulvinar dis bibendum,
+      sociis natoque euismod nibh leo pretium. Montes morbi convallis scelerisque imperdiet et feugiat velit tempus mauris
+      aliquam, ultrices viverra per metus vestibulum lectus rhoncus tempor fermentum. Rutrum himenaeos vel et natoque nostra
+      ante, elementum condimentum netus venenatis integer iaculis nunc, velit pulvinar fringilla ultricies risus. Bibendum
+      facilisis ullamcorper facilisi curae vitae, congue ornare id lectus ad aenean, cum malesuada integer turpis.
+      
+      Risus in maecenas suscipit nibh pharetra mollis a urna duis malesuada, himenaeos sodales auctor venenatis tristique
+      luctus commodo class molestie. Dictumst proin nullam bibendum per venenatis sociis nulla senectus magnis tempor luctus
+      suscipit, nunc habitasse conubia montes laoreet tristique nascetur purus convallis interdum vulputate lobortis, donec
+      sollicitudin viverra vitae quam cras erat dictum sagittis hendrerit ridiculus. Sodales quis vulputate venenatis dictumst
+      tortor nibh arcu nulla cursus, a purus commodo et aliquam varius convallis tristique, nostra sagittis nisl libero
+      tincidunt dignissim penatibus augue"
+    imagePath: ../../images/services/fire-supression-audit.jpg
+    backgroundImage: ""

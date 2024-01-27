@@ -14,6 +14,20 @@ const config: GatsbyConfig = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
+    `gatsby-plugin-mdx-source-name` ,
+    `gatsby-plugin-mdx`,
+    {
+      resolve: "gatsby-transformer-yaml",
+      options: {
+          typeName: ({node}) => {
+          const name = node.sourceInstanceName
+          if (name === `services`) {
+            return `Service`
+          }
+          return name
+        },
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -21,6 +35,28 @@ const config: GatsbyConfig = {
         path: `${__dirname}/src/images/client-logos/`,
       },
       __key: "clientLogos",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "servicesImages",
+        path: `${__dirname}/src/images/services/`,
+      },
+      __key: "servicesImages",
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `services`,
+        path: `${__dirname}/src/data/services`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `news`,
+        path: `${__dirname}/src/data/news`,
+      },
     },
     
   ]
