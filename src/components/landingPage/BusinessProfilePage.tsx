@@ -1,7 +1,6 @@
-import React, { useRef } from "react";
+import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
-import ScrollSlider, { Slide, SlideSectionProps } from "../shared/scrollSlider/ScrollSlider";
-import { useScrollNavBar } from "../../hooks/useScrollNavBar";
+import { BackgroundImage } from "../shared/BackgroundImage";
 
 const title = "Perfil Empresarial";
 const imagePath = "../../images/bussiness-profile-page.jpg";
@@ -13,21 +12,28 @@ Sed maxime provident aut tenetur doloremque qui voluptas omnis eos error esse et
 
 Sed dolorum quidem et dolore asperiores sed consectetur mollitia et quaerat recusandae. Eum quam architecto 33 rerum voluptas et facilis omnis sit ipsa amet quo dolores unde. Cum voluptas odio et earum necessitatibus eos consequuntur accusantium.`;
 
-export const BusinessProfilePage = (props: {}) => {
-
+export const BusinessProfilePage = () => {
   return (
-      <div className="grid grid-cols-4">
+    <BackgroundImage
+      image={
         <StaticImage
           className="col-span-4 col-start-1 row-start-1"
           src={imagePath}
           alt=""
         />
-        <div className="relative grid col-span-4 col-start-1 row-start-1">
-          <h1 className="pt-10 pl-10 text-background text-4xl">{title}</h1>
-          <div className="p-10">
-            <p className="bg-surface w-1/2 p-4 box-border">{description}</p>
+      }
+      content={
+        <div>
+          <h1 className="pt-10 pl-10 text-3xl">{title}</h1>
+          <div className="p-10 flex justify-star items-center w-full h-full">
+            <div className="bg-surface/30 backdrop-blur-sm text-black w-2/3 p-14 box-border ">
+              <p className="bg-surface/70 backdrop-blur-xl p-4">
+                {description}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      }
+    />
   );
 };

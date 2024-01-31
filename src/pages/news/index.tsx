@@ -13,7 +13,7 @@ const ArticleItemList = ({ article }: { article: Article }) => {
     <Link to={`${article.title}`}>
       <div className="flex gap-5">
         <div className="w-1/5">
-          <GatsbyImage image={image} alt="" />
+          <GatsbyImage image={image} alt=""/>
         </div>
         <div className="w-4/5 flex flex-col justify-around gap-8">
           <div className="flex flex-col">

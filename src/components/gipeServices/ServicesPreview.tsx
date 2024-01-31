@@ -22,11 +22,11 @@ const CompanyService = ({
   const companyImage = getImage(companyService.imagePath);
 
   return (
-    <div className="rounded-xl h-full shadow-xl m-3 flex flex-col justify-between items-center border-2">
+    <div className="rounded-xl h-full shadow-xl m-3 flex flex-col items-center border-2">
       <div className="m-2 flex flex-row justify-start items-start">
         <h4 className="text-lg font-bold">{companyService.title}</h4>
       </div>
-      <GatsbyImage image={companyImage} alt="" />
+      <GatsbyImage image={companyImage} alt="" className="aspect-video w-full max-h-fit"/>
       <p className="m-4 font-light text-justify">{companyService.summary}</p>
     </div>
   );
