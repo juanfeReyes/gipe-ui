@@ -6,13 +6,12 @@ import { BackgroundImage } from "../shared/BackgroundImage";
 
 const companySlogan = "DISEÑO Y CONSTRUCCION DE REDES CONTRA INCENDIOS";
 
-export const LandingPage = (props: {}) => {
+export const LandingPage = () => {
   return (
     <BackgroundImage
       image={
         <StaticImage
-          className="col-span-4 col-start-1 row-start-1"
-          layout="fullWidth"
+          className="col-span-4 col-start-1 row-start-1 aspect-video max-h-min"
           src="../../images/landing-page-background.jpg"
           alt="city-from-space"
         />
@@ -29,7 +28,7 @@ export const LandingPage = (props: {}) => {
                 <p className="w-2/3 text-6xl pr-24">{companySlogan}</p>
               </div>
 
-              <div className="flex justify-end items-start col-start-2 col-span-9 p-3">
+              <div className="flex justify-end items-start col-start-2 col-span-9">
                 <div className="w-2/3"></div>
                 <div className=" flex w-1/3 justify-center items-center">
                   <SocialNetworkList />

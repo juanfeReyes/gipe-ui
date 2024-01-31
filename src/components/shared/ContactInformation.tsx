@@ -2,14 +2,6 @@ import React from "react"
 import {IoMailOutline} from '@react-icons/all-files/io5/IoMailOutline'
 import {FaUserTie} from '@react-icons/all-files/fa/FaUserTie'
 
-/**
- * TODOs
- * increase icon size
- * Improve spacing
- *  Get together the icon and the tet
- *  Separate more each contact information
- */
-
 export const ContactInformation = () => {
 
   const contactInformation = [{

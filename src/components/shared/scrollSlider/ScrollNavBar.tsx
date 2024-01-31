@@ -28,7 +28,6 @@ export const ScrollNavbar = ({}) => {
   const { sections, visibleSection } = context;
 
   const handleScrollIntoSection = (ref: any) => {
-    console.log(ref);
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 

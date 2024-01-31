@@ -8,7 +8,7 @@ export interface Service {
 }
 
 export interface CompanyServiceProps {
-  name: string;
+  title: string;
   summary: string;
   description: string;
   imagePath: any;
@@ -16,9 +16,10 @@ export interface CompanyServiceProps {
 }
 
 export interface ServiceBranchProps {
-  name: string;
+  title: string;
   description: string;
   imagePath: ImageDataLike;
-  servicePath: string;
   services: CompanyServiceProps[];
 }
+
+export const nodeToCompanyService = (n) => ({...n.frontmatter})

@@ -17,32 +17,12 @@ const config: GatsbyConfig = {
     `gatsby-plugin-mdx-source-name` ,
     `gatsby-plugin-mdx`,
     {
-      resolve: "gatsby-transformer-yaml",
-      options: {
-          typeName: ({node}) => {
-          const name = node.sourceInstanceName
-          if (name === `services`) {
-            return `Service`
-          }
-          return name
-        },
-      },
-    },
-    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "clientLogos",
         path: `${__dirname}/src/images/client-logos/`,
       },
       __key: "clientLogos",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "servicesImages",
-        path: `${__dirname}/src/images/services/`,
-      },
-      __key: "servicesImages",
     },
     {
       resolve: `gatsby-source-filesystem`,

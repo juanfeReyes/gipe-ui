@@ -12,7 +12,7 @@ export const ServiceBranchHeader = ({
   return (
     <div className="flex justify-evenly items-star h-full">
       <GatsbyImage image={serviceBranchImage} alt="" />
-      <h1>{serviceBranch.name}</h1>
+      <h1>{serviceBranch.title}</h1>
     </div>
   );
 }

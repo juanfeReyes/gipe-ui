@@ -1,30 +1,40 @@
 import { graphql, useStaticQuery } from "gatsby";
+import { nodeToCompanyService } from "../model/Services";
 
-export const getAllServices = () =>
-  useStaticQuery(graphql`
-    query servicesData {
-      allService {
+export const getAllServices = () => {
+  const data = useStaticQuery(graphql`
+    query servicesPreviews {
+      services: allMdx(filter: { fields: { source: { eq: "services" } } }) {
         nodes {
-          name
-          description
-          imagePath {
-            childImageSharp {
-              gatsbyImageData
+          fields {
+            source
+            timeToRead {
+              text
             }
           }
-          servicePath: gatsbyPath(filePath: "/services/{Service.name}")
-          services {
-            name
-            summary
+          frontmatter {
+            title
             description
             imagePath {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(transformOptions: {fit: FILL})
               }
             }
-            backgroundImage
+            services {
+              title
+              description
+              summary
+              imagePath {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
           }
         }
       }
     }
   `);
+
+  return data.services.nodes.map(n => nodeToCompanyService(n))
+};

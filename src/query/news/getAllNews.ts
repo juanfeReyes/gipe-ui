@@ -1,9 +1,10 @@
 import { graphql, useStaticQuery } from "gatsby";
+import { mapToArticles } from "../../model/News";
 
-export const getAllNewsPreview = () => {
+export const getAllNews = () => {
   const data = useStaticQuery(graphql`
-    query newsPreviews {
-      allMdx(filter: { fields: { source: { eq: "news" } } }) {
+    query allNews {
+      news: allMdx(filter: { fields: { source: { eq: "news" } } }) {
         nodes {
           fields {
             source
@@ -15,23 +16,19 @@ export const getAllNewsPreview = () => {
             title
             publishDate
             category
+            summary
             imagePath {
               childImageSharp {
-                gatsbyImageData(width: 1000, height: 1000, transformOptions: {fit: COVER, cropFocus: ATTENTION})
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
           }
-          body
         }
       }
     }
   `);
 
-  const news = data.allMdx.nodes.map((n) => ({
-    ...n.frontmatter,
-    body: n.body,
-    timeToRead: n.fields.timeToRead.text
-  }));
+  const news = mapToArticles(data);
 
   return news;
 };

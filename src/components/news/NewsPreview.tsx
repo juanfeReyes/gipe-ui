@@ -1,39 +1,67 @@
 import React from "react";
-import { getAllNewsPreview } from "../../query/NewsQuery";
+import { getAllNewsPreview } from "../../query/news/getAllNewsPreviews";
 import { BackgroundImage } from "../shared/BackgroundImage";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Article } from "../../model/News";
-import { ArticleIcon } from "./ArticleIcon";
+import { ArticleType } from "./ArticleIcon";
+import { FaPlus } from "@react-icons/all-files/fa/FaPlus";
+import { Link } from "gatsby";
 
 const newsPosition = [
-  "col-start-1 col-end-3 row-start-1 row-end-4",
-  "col-start-3 col-end-4 row-start-1 row-end-3",
-  "col-start-4 col-end-5 row-start-1 row-end-2",
-  "col-start-4 col-end-5 row-start-2 row-end-3",
+  "col-start-1 col-end-3 row-start-1 row-end-5",
+  "col-start-3 col-end-4 row-start-1 row-end-5",
+  "col-start-4 col-end-5 row-start-1 row-end-3",
+  "col-start-4 col-end-5 row-start-3 row-end-5",
+
+  "col-start-1 col-end-2 row-start-5 row-end-6",
+  "col-start-2 col-end-3 row-start-5 row-end-6",
+  "col-start-3 col-end-4 row-start-5 row-end-6",
+  "col-start-4 col-end-5 row-start-5 row-end-6",
 ];
 
-const NewsItem = ({ article }: { article: Article }) => {
+const NewsItem = ({
+  article,
+  layout,
+}: {
+  article: Article;
+  layout: string;
+}) => {
   const image = getImage(article.imagePath);
 
   return (
-      <BackgroundImage
-        image={<GatsbyImage image={image} alt="" />}
-        content={
-          <div className="flex flex-col justify-between">
-            <div className="flex items-center gap-1">
-              <ArticleIcon articleType={article.category} />
-              {article.category}
+    <Link to={`news/${article.title}`}>
+      {layout === "background" ? (
+        <BackgroundImage
+          image={<GatsbyImage className="h-full w-full" image={image} alt="" />}
+          content={
+            <div className="flex flex-col justify-between">
+              <ArticleType articleType={article.category} />
+              <div>
+                <p>{article.timeToRead}</p>
+                <h2 className="text-2xl font-bold">{article.title}</h2>
+              </div>
             </div>
+          }
+        />
+      ) : (
+        <div className="flex h-full w-full">
+          <GatsbyImage
+            className="w-1/3 m-1 rounded-full"
+            image={image}
+            alt=""
+          />
+          <div className="flex w-2/3 p-1 flex-col justify-between">
+            <p>{article.timeToRead}</p>
             <div>
-              <p>{article.timeToRead}</p>
-              <h2>{article.title}</h2>
+              <h2 className="text-xl font-bold">{article.title}</h2>
+              <ArticleType articleType={article.category} />
             </div>
           </div>
-        }
-      />
+        </div>
+      )}
+    </Link>
   );
 };
-
 /**
  * build news item
  * Layout should be a 4x3 grid
@@ -43,15 +71,20 @@ const NewsItem = ({ article }: { article: Article }) => {
  */
 export const NewsPreview = () => {
   const news = getAllNewsPreview();
-  console.log(news);
+  console.log(news)
 
   return (
     <div>
-      <h1>Noticias</h1>
-      <div className="grid grid-cols-4 grid-rows-3 gap-3">
+      <div className="flex justify-between">
+        <h1>Noticias</h1>
+        <Link to="/news" className="flex gap-1 items-center">
+          <FaPlus /> Ver mas
+        </Link>
+      </div>
+      <div className="grid grid-cols-4 grid-rows-5 gap-3">
         {news.map((n, idx) => (
           <div className={newsPosition[idx]}>
-            <NewsItem article={n} />
+            <NewsItem article={n} layout={idx < 4 ? "background" : "circle"} />
           </div>
         ))}
       </div>

@@ -6,6 +6,7 @@ import {
 } from "./shared/navigationBar/NavigationContext";
 import { getAllServices } from "../query/ServicesQuery";
 import { ServiceBranchProps } from "../model/Services";
+import { Footer } from "./shared/Footer";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   const services = getAllServices();
@@ -14,10 +15,10 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const aux = { ...navOptions };
-    aux.services.pathOptions = services.allService.nodes.map(
+    aux.services.pathOptions = services.map(
       (service: ServiceBranchProps) => ({
-        label: service.name,
-        path: service.servicePath,
+        label: service.title,
+        path: `/services/${service.title}`,
       })
     );
     setNavOptions(aux)
@@ -25,9 +26,10 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
   return (
     <NavBarContext.Provider value={{ navOptions, setNavOptions }}>
-      <div className="bg-background">
+      <div className="bg-background container ">
         <NavBar />
         {children}
+        <Footer />
       </div>
     </NavBarContext.Provider>
   );
