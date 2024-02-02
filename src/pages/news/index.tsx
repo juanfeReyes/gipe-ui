@@ -17,11 +17,11 @@ const ArticleItemList = ({ article }: { article: Article }) => {
         </div>
         <div className="w-4/5 flex flex-col justify-around gap-8">
           <div className="flex flex-col">
-            <h2>{article.title}</h2>
-            <p>{article.timeToRead}</p>
+            <h2 className="text-xl font-medium">{article.title}</h2>
+            <p className="font-light">{article.timeToRead}</p>
           </div>
           <div className="flex flex-col">
-            <p>{article.summary}</p>
+            <p >{article.summary}</p>
             <ArticleType articleType={article.category} />
           </div>
         </div>
@@ -36,12 +36,11 @@ const NewsPage = () => {
   return (
     <>
       <Layout>
-        <div>
+        <div className="p-5 divide-y-2">
           <div className="flex flex-col gap-3">
-            <h1>Noticias</h1>
-            <p>Descripcion</p>
+            <h1 className="text-5xl py-5">Noticias</h1>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-5 py-5">
             {newsList.map((n) => (
               <ArticleItemList article={n} />
             ))}

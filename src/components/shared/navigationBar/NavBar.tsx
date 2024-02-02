@@ -1,45 +1,65 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CompanyLogo } from "../Logo";
 import SearchBar from "../SearchBar";
-import { NavBarContext, NavBarContextType, NavItem } from "./NavigationContext";
+import { NavBarContext, NavItem } from "./NavigationContext";
 import { Link } from "gatsby";
-import { Menu } from "@headlessui/react";
 
-const DropdownNavMenu = ({ menu }: { menu: NavItem }) => {
+/**
+ *
+ * Uninstall headless ui
+ * @returns
+ */
+
+const DropdownNavMenu = ({
+  menu,
+  setSubMenu,
+  subMenu,
+}: {
+  menu: NavItem;
+  setSubMenu: any;
+  subMenu: any;
+}) => {
+  const setMenuByElement = () => {
+    if (subMenu.id == menu.label) {
+      setSubMenu({id: null, elem: null});
+      return;
+    }
+
+    setSubMenu({
+      id: menu.label,
+      elem: (
+        <div className="flex flex-col items-center gap-2">
+          {menu.pathOptions?.map((opt) => (
+            <Link to={opt.path}>{opt.label}</Link>
+          ))}
+        </div>
+      ),
+    });
+  };
+
+  const clearMenu = () => {
+    setSubMenu(null);
+  };
+
   return (
     <div className="">
-      <Menu>
-        <Menu.Button className="px-4 py-2 text-sm font-medium text-gray-700">
-          {menu.label}
-        </Menu.Button>
-        <Menu.Items className="py-2 text-sm font-medium text-gray-700">
-          {menu.pathOptions?.map((opt) => (
-            <Menu.Item>
-              {({ active }) => (
-                <Link
-                  className={`block px-4 py-2 ${
-                    active ? "bg-primary text-white" : "text-gray-700"
-                  }`}
-                  to={opt.path}
-                  activeStyle={{ "font-weight": "bold" }}
-                >
-                  {opt.label}
-                </Link>
-              )}
-            </Menu.Item>
-          ))}
-        </Menu.Items>
-      </Menu>
+      <button onClick={setMenuByElement}>{menu.label}</button>
     </div>
   );
 };
 
-export const NavigationLinks = ({}) => {
+export const NavigationLinks = ({
+  setSubMenu,
+  subMenu,
+}: {
+  setSubMenu: any;
+  subMenu: any;
+}) => {
   const { navOptions, setNavOptions } = useContext(NavBarContext);
 
   return (
     <>
-      <div className="flex flex-wrap flex-row items-center justify-start space-x-2">
+      <div className="flex flex-wrap flex-row items-center justify-start space-x-2 gap-4">
         {Object.keys(navOptions).map((key) =>
           navOptions[key].path ? (
             <Link
@@ -49,7 +69,11 @@ export const NavigationLinks = ({}) => {
               {navOptions[key].label}
             </Link>
           ) : (
-            <DropdownNavMenu menu={navOptions[key]} />
+            <DropdownNavMenu
+              subMenu={subMenu}
+              setSubMenu={setSubMenu}
+              menu={navOptions[key]}
+            />
           )
         )}
       </div>
@@ -58,15 +82,26 @@ export const NavigationLinks = ({}) => {
 };
 
 export const NavBar = () => {
+  const [subMenu, setSubMenu] = useState({id: null, elem: null});
+
   return (
-    <div className="bg-surface flex flex-wrap flex-row justify-between items-center px-5">
-      <CompanyLogo />
+    <>
+      <div className="bg-surface flex flex-wrap flex-row justify-between items-center px-5">
+        <CompanyLogo />
 
-      <div>
-        <NavigationLinks />
+        <div>
+          <NavigationLinks subMenu={subMenu} setSubMenu={setSubMenu} />
+        </div>
+
+        <SearchBar />
       </div>
-
-      <SearchBar />
-    </div>
+      <div
+        className={`z-50 absolute block bg-background w-full ${
+          !subMenu.elem && "hidden"
+        }`}
+      >
+        {subMenu.elem}
+      </div>
+    </>
   );
 };

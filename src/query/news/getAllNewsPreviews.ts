@@ -19,6 +19,7 @@ export const getAllNewsPreview = () => {
             imagePath {
               childImageSharp {
                 gatsbyImageData(
+                  aspectRatio: 1,
                   transformOptions: { fit: COVER, cropFocus: ATTENTION }
                 )
               }

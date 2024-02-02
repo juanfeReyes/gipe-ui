@@ -1,5 +1,8 @@
 import React from "react";
-import { CompanyServiceProps, nodeToCompanyService } from "../../model/Services";
+import {
+  CompanyServiceProps,
+  nodeToCompanyService,
+} from "../../model/Services";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { ServiceBranchHeader } from "./ServiceBranchHeader";
 import Layout from "../Layout";
@@ -14,13 +17,13 @@ const CompanyServiceDetail = ({
   const serviceImage = getImage(service.imagePath);
 
   return (
-    <div className="flex w-screen justify-between">
+    <div className="flex odd:flex-row-reverse w-full justify-evenly">
       <div className="prose flex flex-col justify-start items-center">
         <h2 className="w-full">{service.title}</h2>
         <p>{service.description}</p>
       </div>
       <div className="w-1/3 flex justify-between items-center">
-        <GatsbyImage image={serviceImage} alt="" />
+        <GatsbyImage className="aspect-video w-full" image={serviceImage} alt="" />
       </div>
     </div>
   );
@@ -32,10 +35,11 @@ const CompanyServiceDetailPage = ({ data, children }: any) => {
   return (
     <>
       <Layout>
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-10 p-5">
           <div className="w-full">
             <ServiceBranchHeader serviceBranch={service} />
           </div>
+
           {service.services.map((s) => (
             <CompanyServiceDetail service={s} />
           ))}
@@ -62,7 +66,7 @@ query serviceDetail ($id: String!) {
       description
       imagePath {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(transformOptions: {fit : COVER})
         }
       }
       services {

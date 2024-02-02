@@ -34,7 +34,7 @@ const NewsItem = ({
         <BackgroundImage
           image={<GatsbyImage className="h-full w-full" image={image} alt="" />}
           content={
-            <div className="flex flex-col justify-between">
+            <div className="flex flex-col justify-between m-2">
               <ArticleType articleType={article.category} />
               <div>
                 <p>{article.timeToRead}</p>
@@ -44,13 +44,13 @@ const NewsItem = ({
           }
         />
       ) : (
-        <div className="flex h-full w-full">
+        <div className="flex">
           <GatsbyImage
-            className="w-1/3 m-1 rounded-full"
+            className="w-1/2 m-1 rounded-full"
             image={image}
             alt=""
           />
-          <div className="flex w-2/3 p-1 flex-col justify-between">
+          <div className="flex w-1/2 p-1 flex-col justify-between">
             <p>{article.timeToRead}</p>
             <div>
               <h2 className="text-xl font-bold">{article.title}</h2>
@@ -62,26 +62,22 @@ const NewsItem = ({
     </Link>
   );
 };
-/**
- * build news item
- * Layout should be a 4x3 grid
- * fix typography
- * fix styling
- *
- */
+
+
+
+
 export const NewsPreview = () => {
   const news = getAllNewsPreview();
-  console.log(news)
 
   return (
-    <div>
+    <div className="py-5">
       <div className="flex justify-between">
-        <h1>Noticias</h1>
+        <h1 className="text-3xl">Noticias</h1>
         <Link to="/news" className="flex gap-1 items-center">
           <FaPlus /> Ver mas
         </Link>
       </div>
-      <div className="grid grid-cols-4 grid-rows-5 gap-3">
+      <div className="grid grid-cols-4 grid-rows-5 gap-5 p-10">
         {news.map((n, idx) => (
           <div className={newsPosition[idx]}>
             <NewsItem article={n} layout={idx < 4 ? "background" : "circle"} />

@@ -13,7 +13,7 @@ const ArticleDetailPage = ({ data, children }: any) => {
   return (
     <>
       <Layout>
-        <div className="flex gap-7">
+        <div className="flex gap-7 p-5">
           <div className="w-1/5 flex-col divide-y-2 divide-primary">
             <p>{article.timeToRead}</p>
             <ArticleType articleType={article.category} />

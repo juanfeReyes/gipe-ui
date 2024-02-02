@@ -7,13 +7,14 @@ export const ServiceBranchHeader = ({
 }: {
   serviceBranch: ServiceBranchProps;
 }) => {
-  const serviceBranchImage = getImage(serviceBranch.imagePath)
+  const serviceBranchImage = getImage(serviceBranch.imagePath);
 
   return (
-    <div className="flex justify-evenly items-star h-full">
-      <GatsbyImage image={serviceBranchImage} alt="" />
-      <h1>{serviceBranch.title}</h1>
+    <div className="flex justify-evenly items-star">
+      <GatsbyImage className="w-1/3" image={serviceBranchImage} alt="" />
+      <div className="w-2/3 flex justify-center items-center">
+        <h1 className="text-5xl">{serviceBranch.title}</h1>
+      </div>
     </div>
   );
-}
-
+};
