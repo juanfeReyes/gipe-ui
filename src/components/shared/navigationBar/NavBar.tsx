@@ -21,24 +21,23 @@ const DropdownNavMenu = ({
 }) => {
   const setMenuByElement = () => {
     if (subMenu.id == menu.label) {
-      setSubMenu({id: null, elem: null});
+      setSubMenu({ id: null, elem: null });
       return;
     }
 
     setSubMenu({
       id: menu.label,
       elem: (
-        <div className="flex flex-col items-center gap-2">
-          {menu.pathOptions?.map((opt) => (
-            <Link to={opt.path}>{opt.label}</Link>
-          ))}
+        <div className="p-5 divide-y-2">
+          <h6 className="font-light">{menu.label}</h6>
+          <div className="flex flex-col items-start justify-start gap-2">
+            {menu.pathOptions?.map((opt) => (
+              <Link to={opt.path}>{opt.label}</Link>
+            ))}
+          </div>
         </div>
       ),
     });
-  };
-
-  const clearMenu = () => {
-    setSubMenu(null);
   };
 
   return (
@@ -82,18 +81,18 @@ export const NavigationLinks = ({
 };
 
 export const NavBar = () => {
-  const [subMenu, setSubMenu] = useState({id: null, elem: null});
+  const [subMenu, setSubMenu] = useState({ id: null, elem: null });
 
   return (
     <>
-      <div className="bg-surface flex flex-wrap flex-row justify-between items-center px-5">
-        <CompanyLogo />
-
-        <div>
-          <NavigationLinks subMenu={subMenu} setSubMenu={setSubMenu} />
+      <div className="bg-surface flex flex-wrap flex-row items-center gap-10 px-5 h-20">
+        <div className="">
+          <CompanyLogo />
         </div>
 
-        <SearchBar />
+        <div className="">
+          <NavigationLinks subMenu={subMenu} setSubMenu={setSubMenu} />
+        </div>
       </div>
       <div
         className={`z-50 absolute block bg-background w-full ${
