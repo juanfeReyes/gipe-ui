@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmy_gatsby_site=self.webpackChunkmy_gatsby_site||[]).push([[218],{2513:function(e,t,n){n.r(t);var a=n(7294),l=n(7328);t.default=()=>a.createElement(a.Fragment,null,a.createElement(l.Z,null,a.createElement("div",null,"Oops. No encontramos esta pagina. Vuelve con inicio")))}}]);
+//# sourceMappingURL=component---src-pages-404-tsx-90f07f6bb44418ae5ae9.js.map
