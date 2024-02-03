@@ -10,7 +10,7 @@ export const ServiceBranchHeader = ({
   const serviceBranchImage = getImage(serviceBranch.imagePath);
 
   return (
-    <div className="flex justify-evenly items-star">
+    <div className="flex justify-evenly items-star gap-3">
       <GatsbyImage className="w-1/3" image={serviceBranchImage} alt="" />
       <div className="w-2/3 flex justify-center items-center">
         <h1 className="text-5xl">{serviceBranch.title}</h1>

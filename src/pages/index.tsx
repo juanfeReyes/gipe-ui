@@ -1,5 +1,5 @@
 import * as React from "react";
-import Layout from "../components/Layout";
+import Layout from "../components/shared/layout/Layout";
 import { LandingPage } from "../components/landingPage/LandingPage";
 import { BusinessProfilePage } from "../components/landingPage/BusinessProfilePage";
 import { ClientsPage } from "../components/landingPage/ClientsPage";

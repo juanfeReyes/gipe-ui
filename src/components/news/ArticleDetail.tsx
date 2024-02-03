@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../Layout";
+import Layout from "../shared/layout/Layout";
 import { Article, nodeToArticle } from "../../model/News";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql } from "gatsby";

@@ -7,6 +7,8 @@ import { FaPlus } from "@react-icons/all-files/fa/FaPlus";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { CompanyServiceProps, ServiceBranchProps } from "../../model/Services";
 import { getAllServices } from "../../query/ServicesQuery";
+import { useMediaQuery } from "react-responsive";
+import { mobileResponsiveConfig } from "../shared/layout/Responsive";
 
 const ViewMoreServices = ({ servicePath }: { servicePath: string }) => (
   <Link to={`services/${servicePath}`} className="flex gap-1 items-center font-medium">
@@ -55,10 +57,11 @@ const ServiceBranch = ({
 }: {
   serviceBranch: ServiceBranchProps;
 }) => {
+  const isMobile = useMediaQuery(mobileResponsiveConfig)
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel({
       withLoop: true,
-      itemsPerSlide: 2,
+      itemsPerSlide: isMobile ? 1 : 2,
       gutter: 24,
       items: serviceBranch.services.map((service) => ({
         id: service.title,
@@ -82,11 +85,11 @@ const ServiceBranch = ({
           <ViewMoreServices servicePath={serviceBranch.title} />
         </div>
       </div>
-      <div className="flex flex-row gap-10 bg-background">
-        <div className="w-1/3">
+      <div className="flex flex-row flex-wrap gap-10 bg-background">
+        <div className="md:w-1/3">
           <BranchSummary serviceBranch={serviceBranch} />
         </div>
-        <div className="w-2/3 flex grow basis-0 z-20 overflow-hidden pb-10">
+        <div className="md:w-2/3 flex grow basis-0 z-20 overflow-hidden pb-10">
           {carouselFragment}
         </div>
       </div>

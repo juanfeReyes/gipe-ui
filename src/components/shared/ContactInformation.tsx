@@ -14,10 +14,10 @@ export const ContactInformation = () => {
   }]
 
   return (<>
-    <div className="flex flex-wrap gap-5 space-x-1 text-xl">
+    <div className="flex flex-wrap justify-center md:gap-5 md:text-xl">
       {contactInformation.map(contact => (<>
-        <div className="flex flex-wrap gap-0 space-x-2 items-center pb-5">
-          <div className="text-2xl">
+        <div className="flex flex-wrap gap-3 items-center">
+          <div className="md:text-2xl">
             {contact.icon}
           </div>
           <p>{contact.value}</p>

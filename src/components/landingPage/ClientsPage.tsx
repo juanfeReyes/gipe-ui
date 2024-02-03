@@ -8,6 +8,8 @@ import { graphql, useStaticQuery } from "gatsby";
 import { useSpringCarousel } from "react-spring-carousel";
 import { GrFormPrevious } from "@react-icons/all-files/gr/GrFormPrevious";
 import { GrFormNext } from "@react-icons/all-files/gr/GrFormNext";
+import { useMediaQuery } from "react-responsive";
+import { mobileResponsiveConfig } from "../shared/layout/Responsive";
 
 const title = "Clientes";
 
@@ -36,11 +38,12 @@ export const ClientsPage = (props: {}) => {
   `);
 
   const clients = data.clientImgs.nodes;
+  const isMobile = useMediaQuery(mobileResponsiveConfig)
 
   const { carouselFragment, slideToPrevItem, slideToNextItem, useListenToCustomEvent } =
     useSpringCarousel({
       withLoop: true,
-      itemsPerSlide: 5,
+      itemsPerSlide: isMobile ? 2 : 5,
       gutter: 24,
       items: clients.map((client, idx) => ({
         id: idx,

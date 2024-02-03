@@ -1,12 +1,12 @@
 import React, { ReactNode, useEffect, useState } from "react";
-import { NavBar } from "./shared/navigationBar/NavBar";
+import { NavBar } from "../navigationBar/NavBar";
 import {
   NavBarContext,
   initialNavBarContext,
-} from "./shared/navigationBar/NavigationContext";
-import { getAllServices } from "../query/ServicesQuery";
-import { ServiceBranchProps } from "../model/Services";
-import { Footer } from "./shared/Footer";
+} from "../navigationBar/NavigationContext";
+import { getAllServices } from "../../../query/ServicesQuery";
+import { ServiceBranchProps } from "../../../model/Services";
+import { Footer } from "../Footer";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   const services = getAllServices();

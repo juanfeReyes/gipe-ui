@@ -6,6 +6,8 @@ import { Article } from "../../model/News";
 import { ArticleType } from "./ArticleIcon";
 import { FaPlus } from "@react-icons/all-files/fa/FaPlus";
 import { Link } from "gatsby";
+import { useMediaQuery } from "react-responsive";
+import { mobileResponsiveConfig } from "../shared/layout/Responsive";
 
 const newsPosition = [
   "col-start-1 col-end-3 row-start-1 row-end-5",
@@ -68,6 +70,7 @@ const NewsItem = ({
 
 export const NewsPreview = () => {
   const news = getAllNewsPreview();
+  const isMobile = useMediaQuery(mobileResponsiveConfig)
 
   return (
     <div className="py-5">
@@ -77,9 +80,9 @@ export const NewsPreview = () => {
           <FaPlus /> Ver mas
         </Link>
       </div>
-      <div className="grid grid-cols-4 grid-rows-5 gap-5 p-10">
+      <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-5 gap-5 p-10">
         {news.map((n, idx) => (
-          <div className={newsPosition[idx]}>
+          <div className={isMobile ? '': newsPosition[idx]}>
             <NewsItem article={n} layout={idx < 4 ? "background" : "circle"} />
           </div>
         ))}

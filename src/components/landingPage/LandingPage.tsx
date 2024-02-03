@@ -25,7 +25,7 @@ export const LandingPage = () => {
 
             <div className="h-full grid grid-cols-10">
               <div className="flex flex-col justify-center w-full col-start-2 col-span-9">
-                <p className="w-2/3 text-6xl pr-24">{companySlogan}</p>
+                <p className="w-2/3 md:text-6xl pr-24">{companySlogan}</p>
               </div>
 
               <div className="flex justify-end items-start col-start-2 col-span-9">

@@ -20,9 +20,9 @@ export const SocialNetworkList = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex md:flex-col gap-2">
       {socialNetworks.map((net) => (
-        <a className="text-xl rounded-full border-solid border-2 border-background p-2" href={net.link}>
+        <a className="md:text-xl rounded-full border-solid border-2 border-background p-2" href={net.link}>
           {net.icon}
         </a>
       ))}

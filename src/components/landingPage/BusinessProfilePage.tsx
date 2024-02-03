@@ -15,19 +15,13 @@ Sed dolorum quidem et dolore asperiores sed consectetur mollitia et quaerat recu
 export const BusinessProfilePage = () => {
   return (
     <BackgroundImage
-      image={
-        <StaticImage
-          className="col-span-4 col-start-1 row-start-1"
-          src={imagePath}
-          alt=""
-        />
-      }
+      image={<StaticImage src={imagePath} alt="" />}
       content={
         <div>
-          <h1 className="pt-10 pl-10 text-3xl">{title}</h1>
-          <div className="p-10 flex justify-star items-center w-full h-full">
-            <div className="bg-surface/30 backdrop-blur-sm text-black w-2/3 p-14 box-border ">
-              <p className="bg-surface/70 backdrop-blur-xl p-4">
+          <h1 className="md:pt-10 md:pl-10 md:text-3xl">{title}</h1>
+          <div className=" md:p-10 flex justify-star items-center w-full h-full">
+            <div className="bg-surface/30 backdrop-blur-sm text-black md:w-2/3 p-3 md:p-14 box-border ">
+              <p className="bg-surface/70 backdrop-blur-xl p-2 md:p-4 text-pretty truncate overflow-hidden h-14 md:h-full">
                 {description}
               </p>
             </div>
